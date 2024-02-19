@@ -47,24 +47,35 @@ fi
 numberGenerator() 
 {
     local cantidad=$quantity
+    local numbers=()
+    local i=0
 
-    numeros_aleatorios=$(seq -1000000 1000000 | shuf | head -n $cantidad)
+    while [ $i -lt $cantidad ]; do
+        random_number=$(jot -r 1 -1000000 1000000)
+        if ! [[ " ${numbers[@]} " =~ " $random_number " ]]; then
+            numbers+=($random_number)
+            i=$((i + 1))
+        fi
+    done
 
-    echo "$numeros_aleatorios"
+    echo "${numbers[@]}"
 }
 
 while [ "$n" -gt 0 ]; do
     randomNumbers=$(numberGenerator)
-    start=$(date +%s%N)
+    start=$(date +%s.%N | sed 's/N$//')
     operation=$(./push_swap $randomNumbers | wc -l)
-    end=$(date +%s%N)
-    duration=$((($end - $start)/1000000))
+    end=$(date +%s.%N | sed 's/N$//')
+
+    # Calcular la diferencia de tiempo en segundos
+    duration=$(echo "scale=2; $end - $start" | bc)
+
 
     if [ $operation -le $maxOperation ]; then
-        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_GREEN}PASSED${NC} Time: ${duration}ms"
+        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_GREEN}PASSED${NC} Time: ${duration} s"
         passedtest=$((passedtest + 1))
     elif [ $operation -gt $maxOperation ]; then
-        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_RED}FAILED${NC} Time: ${duration}ms"
+        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_RED}FAILED${NC} Time: ${duration} s"
     fi
     
     if [ $worst -lt $operation ]; then

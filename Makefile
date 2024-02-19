@@ -6,19 +6,15 @@
 #    By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 17:54:29 by daguilar          #+#    #+#              #
-#    Updated: 2024/01/24 13:10:15 by daguilar         ###   ########.fr        #
+#    Updated: 2024/02/19 16:32:45 by daguilar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIBFT_PATH 		= includes/libft
 
-SRCS			=	errors.c libft_utils.c new_stack.c node_utils.c operations_1.c \
-				operations_2.c operations_3.c operations_4.c push_swap.c sort_three.c \
-				split_ps.c stack_utils.c sort_all.c proccess.c
+SRCS = $(wildcard src/push_swap.c src/operations/*.c src/utils/*.c src/sort/*.c src/creation/*.c)
 
-BONUS_SRCS		= checker.c errors.c libft_utils.c new_stack.c node_utils.c operations_1.c \
-				operations_2.c operations_3.c operations_4.c sort_three.c \
-				split_ps.c stack_utils.c sort_all.c proccess.c
+BONUS_SRCS	= $(wildcard src/push_swap.c src/bonus/checker.c src/operations/*.c src/utils/*.c src/sort/*.c src/creation/*.c)
 
 OBJS			= $(SRCS:.c=.o)
 
