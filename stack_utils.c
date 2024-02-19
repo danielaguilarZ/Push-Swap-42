@@ -47,26 +47,6 @@ bool	ft_stack_sorted(t_stack *stack)
 	return (true);
 }
 
-t_stack	*ft_stack_min(t_stack *stack)
-{
-	long	min;
-	t_stack	*min_node;
-
-	if (!stack)
-		return (NULL);
-	min = LONG_MAX;
-	while (stack)
-	{
-		if (stack->nb < min)
-		{
-			min = stack->nb;
-			min_node = stack;
-		}
-		stack = stack->next;
-	}
-	return (min_node);
-}
-
 t_stack	*ft_stack_max(t_stack *stack)
 {
 	long	max;

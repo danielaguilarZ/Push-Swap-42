@@ -25,5 +25,6 @@ int	main(int argc, char **argv)
 		argv = ft_split_ps(argv[1], ' ');
 	ft_create_stack_a(&a, argv + 1);
 	ft_sort_all(&a, &b);
+	// ft_print_stacks(a, b);
 	ft_free_stack(&a);
 }

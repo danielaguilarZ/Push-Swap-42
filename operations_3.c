@@ -56,10 +56,12 @@ void	ft_rrr(t_stack **A, t_stack **B, bool print)
 		ft_printf("rrr\n");
 }
 
-// void	ft_rrr_both(t_stack **A, t_stack **B, t_stack *optimal_node)
-// {
-// 	while (*B != optimal_node->target_node && *A != optimal_node)
-// 		ft_rrr(A, B, true);
-// 	ft_current_index(*A);
-// 	ft_current_index(*B);
-// }
+void	ft_rrr_both(t_stack **A, t_stack **B, t_stack *cheapest)
+{
+	while (cheapest->cost_a < 0 && cheapest->cost_b < 0)
+	{
+		ft_rrr(A, B, true);
+		cheapest->cost_a++;
+		cheapest->cost_b++;
+	}
+}

@@ -14,11 +14,11 @@ LIBFT_PATH 		= includes/libft
 
 SRCS			=	errors.c libft_utils.c new_stack.c node_utils.c operations_1.c \
 				operations_2.c operations_3.c operations_4.c push_swap.c sort_three.c \
-				split_ps.c stack_utils.c sort_all.c
+				split_ps.c stack_utils.c sort_all.c proccess.c
 
 BONUS_SRCS		= checker.c errors.c libft_utils.c new_stack.c node_utils.c operations_1.c \
 				operations_2.c operations_3.c operations_4.c sort_three.c \
-				split_ps.c stack_utils.c sort_all.c
+				split_ps.c stack_utils.c sort_all.c proccess.c
 
 OBJS			= $(SRCS:.c=.o)
 

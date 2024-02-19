@@ -32,3 +32,10 @@ long	ft_atoi_ps(const char *s)
 		result = result * 10 + (*s++ - '0');
 	return (result * sign);
 }
+
+int	nb_absolute(int nb)
+{
+	if (nb < 0)
+		return (nb * -1);
+	return (nb);
+}

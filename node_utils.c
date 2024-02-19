@@ -12,23 +12,49 @@
 
 #include "push_swap.h"
 
-// void	ft_current_index(t_stack *stack)
-// {
-// 	int	i;
-// 	int	median;
+void	ft_find_position(t_stack **stack)
+{
+	t_stack	*current;
+	int		i;
 
-// 	i = 0;
-// 	if (!stack)
-// 		return ;
-// 	median = ft_stack_size(stack) / 2;
-// 	while (stack)
-// 	{
-// 		stack->index = i;
-// 		if (i <= median)
-// 			stack->above_median = true;
-// 		else
-// 			stack->above_median = false;
-// 		stack = stack->next;
-// 		++i;
-// 	}
-// }
+	i = 0;
+	current = *stack;
+	while (current)
+	{
+		current->pos = i;
+		i++;
+		current = current->next;
+	}
+}
+
+t_stack	*ft_smallest_index(t_stack **A)
+{
+	t_stack	*current_a;
+	t_stack	*smallest_index;
+
+	current_a = *A;
+	smallest_index = *A;
+	while (current_a)
+	{
+		if (current_a->index < smallest_index->index)
+			smallest_index = current_a;
+		current_a = current_a->next;
+	}
+	return (smallest_index);
+}
+
+void	ft_smallest_index_to_pos(t_stack **A, t_stack *current_b)
+{
+	t_stack	*current_a;
+	t_stack	*smallest_index;
+
+	current_a = *A;
+	smallest_index = *A;
+	while (current_a)
+	{
+		if (current_a->index < smallest_index->index)
+			smallest_index = current_a;
+		current_a = current_a->next;
+	}
+	current_b->target_pos = smallest_index->pos;
+}

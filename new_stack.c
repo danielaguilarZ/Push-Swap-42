@@ -12,6 +12,29 @@
 
 #include "push_swap.h"
 
+static void	ft_assign_indexes(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*temp;
+	int		smaller_than;
+
+	smaller_than = 0;
+	current = *stack;
+	while (current)
+	{
+		temp = *stack;
+		smaller_than = 0;
+		while (temp)
+		{
+			if (temp->nb < current->nb)
+				smaller_than++;
+			temp = temp->next;
+		}
+		current->index = smaller_than;
+		current = current->next;
+	}
+}
+
 static void	ft_add_node(t_stack **stack, int n)
 {
 	t_stack	*node;

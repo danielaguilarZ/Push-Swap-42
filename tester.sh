@@ -55,13 +55,16 @@ numberGenerator()
 
 while [ "$n" -gt 0 ]; do
     randomNumbers=$(numberGenerator)
+    start=$(date +%s%N)
     operation=$(./push_swap $randomNumbers | wc -l)
+    end=$(date +%s%N)
+    duration=$((($end - $start)/1000000))
 
     if [ $operation -le $maxOperation ]; then
-        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_GREEN}PASSED${NC}"
+        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_GREEN}PASSED${NC} Time: ${duration}ms"
         passedtest=$((passedtest + 1))
     elif [ $operation -gt $maxOperation ]; then
-        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_RED}FAILED${NC}"
+        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_RED}FAILED${NC} Time: ${duration}ms"
     fi
     
     if [ $worst -lt $operation ]; then
