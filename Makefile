@@ -6,7 +6,7 @@
 #    By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 17:54:29 by daguilar          #+#    #+#              #
-#    Updated: 2024/02/19 16:32:45 by daguilar         ###   ########.fr        #
+#    Updated: 2024/02/19 19:29:17 by daguilar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ LIBFT_PATH 		= includes/libft
 
 SRCS = $(wildcard src/push_swap.c src/operations/*.c src/utils/*.c src/sort/*.c src/creation/*.c)
 
-BONUS_SRCS	= $(wildcard src/push_swap.c src/bonus/checker.c src/operations/*.c src/utils/*.c src/sort/*.c src/creation/*.c)
+BONUS_SRCS	= $(wildcard src/bonus/checker.c src/operations/*.c src/utils/*.c src/sort/*.c src/creation/*.c)
 
 OBJS			= $(SRCS:.c=.o)
 

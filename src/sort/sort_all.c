@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:37:49 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:40:38 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:39:08 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,11 @@ static t_stack	*ft_calc_cheapest_move(t_stack **B)
 void	ft_sort_all(t_stack **A, t_stack **B)
 {
 	t_stack	*cheapest;
-
+	
 	ft_push_b_until_3(A, B);
+	ft_find_position(A);
+	ft_find_position(B);
+	ft_cost_calculation(A, B);
 	while (*B)
 	{
 		ft_cost_calculation(A, B);

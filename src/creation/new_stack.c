@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:34:39 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:40:24 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:28:00 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,34 +81,32 @@ void	ft_create_stack_a(t_stack **A, char **argv)
 	ft_assign_indexes(A);
 }
 
-
-void ft_print_stacks(t_stack *A, t_stack *B)
+void	ft_print_stacks(t_stack *A, t_stack *B)
 {
-    ft_printf("\n");
-    if (A == NULL)
-        ft_printf("Stack A: \n");
-    else
-    {
-        ft_printf("Stack A: \n");
-        while (A != NULL)
-        {
-            ft_printf("Valor: %i | Índice: %i | Posición: %i\n", A->nb, A->index, A->pos);
-            A = A->next;
-        }
-    }
-    ft_printf("\n");
-    if (B == NULL)
-        ft_printf("Stack B: \n");
-    else
-    {
-        ft_printf("Stack B: \n");
-        while (B != NULL)
-        {
-            ft_printf("Valor: %i | Índice: %i | Posición: %i | Posición Objetivo: %i\n", B->nb, B->index, B->pos, B->target_pos);
-            B = B->next;
-        }
-    }
+	ft_printf("\n");
+	if (A == NULL)
+		ft_printf("Stack A: \n");
+	else
+	{
+		ft_printf("Stack A: \n");
+		while (A != NULL)
+		{
+			ft_printf("Valor: %i | Índice: %i | Posición: %i\n", A->nb,
+				A->index, A->pos);
+			A = A->next;
+		}
+	}
+	ft_printf("\n");
+	if (B == NULL)
+		ft_printf("Stack B: \n");
+	else
+	{
+		ft_printf("Stack B: \n");
+		while (B != NULL)
+		{
+			ft_printf("Valor: %i | Índice: %i | Posición: %i | Posición Objetivo: %i\n", B->nb, B->index, B->pos,
+				B->target_pos);
+			B = B->next;
+		}
+	}
 }
-
-
-

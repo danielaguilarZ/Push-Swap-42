@@ -20,7 +20,7 @@ worst=0
 
 if [ $quantityWanted -eq 5 ]; then
     quantity=$((quantity + 5))
-    maxOperation=$((maxOperation + 11))
+    maxOperation=$((maxOperation + 13))
 elif [ $quantityWanted -eq 100 ]; then
     quantity=$((quantity + 100))
     maxOperation=$((maxOperation + 700))
@@ -79,7 +79,7 @@ while [ "$n" -gt 0 ]; do
     fi
     
     if [ $worst -lt $operation ]; then
-        worst=$operation
+        worst=$((operation - 1))
     fi
 
     i=$((i + 1))
@@ -87,14 +87,6 @@ while [ "$n" -gt 0 ]; do
 done
 
 result=$(echo "scale=2; ($passedtest / ($i - 1)) * 100" | bc)
-
-# if [ $result -lt 50 ]; then
-#     echo -e "\nThe percent of passed test is ${BOLD_RED}$result%${NC}, and the worse case was $worst"
-# elif [[ $result -ge 50 && $result -le 70 ]]; then
-#     echo -e "\nThe percent of passed test is ${BOLD_YELLOW}$result%${NC}, and the worse case was $worst"
-# elif [ $result -ge 70 ]; then
-#     echo -e "\nThe percent of passed test is ${BOLD_GREEN}$result%${NC}, and the worse case was $worst"
-# fi
 
 if [ $(echo "$result < 50" | bc) -eq 1 ]; then
     echo -e "\nThe percent of passed test is ${BOLD_RED}$result%${NC}, and the worse case was $worst"

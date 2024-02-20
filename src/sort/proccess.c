@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/19 16:34:37 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:40:36 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:37:15 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ static void	ft_find_target_positions(t_stack **A, t_stack **B)
 	current_b = *B;
 	while (current_b)
 	{
+		ft_find_position(A);
+		ft_find_position(B);
 		current_a = *A;
 		target = NULL;
 		while (current_a)
@@ -77,14 +79,15 @@ void	ft_cost_calculation(t_stack **A, t_stack **B)
 	t_stack	*current_b;
 
 	current_b = *B;
+	ft_find_target_positions(A, B);
 	while (current_b)
 	{
 		ft_find_target_positions(A, B);
 		if (current_b->target_pos <= ft_stack_size(*A) / 2)
 			current_b->cost_a = current_b->target_pos;
 		else
-			current_b->cost_a = (ft_stack_size(*A) - current_b->target_pos) *
-				-1;
+			current_b->cost_a = (ft_stack_size(*A) - current_b->target_pos)
+				* -1;
 		if (current_b->pos <= ft_stack_size(*B) / 2)
 			current_b->cost_b = current_b->pos;
 		else

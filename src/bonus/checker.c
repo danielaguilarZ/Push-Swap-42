@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:47:18 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:40:14 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/02/20 19:12:30 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ int	main(int argc, char **argv)
 	t_stack	*b;
 	char	*operation;
 
+	printf("HOLA");
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))

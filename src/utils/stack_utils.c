@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:34:01 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:41:07 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/02/19 19:40:43 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,24 @@ t_stack	*ft_stack_max(t_stack *stack)
 		stack = stack->next;
 	}
 	return (max_node);
+}
+
+t_stack	*ft_stack_min(t_stack *stack)
+{
+	long			min;
+	t_stack	*min_node;
+
+	if (!stack)
+		return (NULL);
+	min = LONG_MAX;
+	while (stack)
+	{
+		if (stack->nb < min)
+		{
+			min = stack->nb;
+			min_node = stack;
+		}
+		stack = stack->next;
+	}
+	return (min_node); 
 }

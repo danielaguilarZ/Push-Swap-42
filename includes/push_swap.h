@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:16:10 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:42:05 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/02/20 18:44:22 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void				ft_rrr_both(t_stack **A, t_stack **B, t_stack *cheapest);
 long				ft_atoi_ps(const char *s);
 char				**ft_split_ps(char *s, char c);
 int					nb_absolute(int nb);
-
 
 // Stack utils
 
