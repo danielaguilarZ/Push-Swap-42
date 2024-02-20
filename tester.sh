@@ -20,7 +20,7 @@ worst=0
 
 if [ $quantityWanted -eq 5 ]; then
     quantity=$((quantity + 5))
-    maxOperation=$((maxOperation + 13))
+    maxOperation=$((maxOperation + 11))
 elif [ $quantityWanted -eq 100 ]; then
     quantity=$((quantity + 100))
     maxOperation=$((maxOperation + 700))
@@ -47,39 +47,25 @@ fi
 numberGenerator() 
 {
     local cantidad=$quantity
-    local numbers=()
-    local i=0
 
-    while [ $i -lt $cantidad ]; do
-        random_number=$(jot -r 1 -1000000 1000000)
-        if ! [[ " ${numbers[@]} " =~ " $random_number " ]]; then
-            numbers+=($random_number)
-            i=$((i + 1))
-        fi
-    done
+    numeros_aleatorios=$(seq -1000000 1000000 | shuf | head -n $cantidad)
 
-    echo "${numbers[@]}"
+    echo "$numeros_aleatorios"
 }
 
 while [ "$n" -gt 0 ]; do
     randomNumbers=$(numberGenerator)
-    start=$(date +%s.%N | sed 's/N$//')
     operation=$(./push_swap $randomNumbers | wc -l)
-    end=$(date +%s.%N | sed 's/N$//')
-
-    # Calcular la diferencia de tiempo en segundos
-    duration=$(echo "scale=2; $end - $start" | bc)
-
 
     if [ $operation -le $maxOperation ]; then
-        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_GREEN}PASSED${NC} Time: ${duration} s"
+        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_GREEN}PASSED${NC}"
         passedtest=$((passedtest + 1))
     elif [ $operation -gt $maxOperation ]; then
-        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_RED}FAILED${NC} Time: ${duration} s"
+        echo -e "[+] TEST $i:${BOLD_YELLOW} $operation${NC} ${BOLD_RED}FAILED${NC}"
     fi
-    
+
     if [ $worst -lt $operation ]; then
-        worst=$((operation - 1))
+        worst=$operation
     fi
 
     i=$((i + 1))
@@ -87,6 +73,14 @@ while [ "$n" -gt 0 ]; do
 done
 
 result=$(echo "scale=2; ($passedtest / ($i - 1)) * 100" | bc)
+
+# if [ $result -lt 50 ]; then
+#     echo -e "\nThe percent of passed test is ${BOLD_RED}$result%${NC}, and the worse case was $worst"
+# elif [[ $result -ge 50 && $result -le 70 ]]; then
+#     echo -e "\nThe percent of passed test is ${BOLD_YELLOW}$result%${NC}, and the worse case was $worst"
+# elif [ $result -ge 70 ]; then
+#     echo -e "\nThe percent of passed test is ${BOLD_GREEN}$result%${NC}, and the worse case was $worst"
+# fi
 
 if [ $(echo "$result < 50" | bc) -eq 1 ]; then
     echo -e "\nThe percent of passed test is ${BOLD_RED}$result%${NC}, and the worse case was $worst"

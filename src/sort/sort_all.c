@@ -82,9 +82,6 @@ void	ft_sort_all(t_stack **A, t_stack **B)
 	t_stack	*cheapest;
 	
 	ft_push_b_until_3(A, B);
-	ft_find_position(A);
-	ft_find_position(B);
-	ft_cost_calculation(A, B);
 	while (*B)
 	{
 		ft_cost_calculation(A, B);

@@ -82,7 +82,6 @@ void	ft_cost_calculation(t_stack **A, t_stack **B)
 	ft_find_target_positions(A, B);
 	while (current_b)
 	{
-		ft_find_target_positions(A, B);
 		if (current_b->target_pos <= ft_stack_size(*A) / 2)
 			current_b->cost_a = current_b->target_pos;
 		else
