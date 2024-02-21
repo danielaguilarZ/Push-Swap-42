@@ -16,20 +16,13 @@
 
 void	ft_swap(t_stack **stack)
 {
-	int		temp;
-	t_stack	*first;
-	t_stack	*second;
+	t_stack	*temp;
 
-	first = NULL;
-	second = NULL;
-	if (*stack && (*stack)->next)
-	{
-		first = *stack;
-		second = (*stack)->next;
-	}
-	temp = first->nb;
-	first->nb = second->nb;
-	second->nb = temp;
+	temp = *stack;
+	*stack = (*stack)->next;
+	temp->next = (*stack)->next;
+	(*stack)->next = temp;
+
 }
 
 void	ft_sa(t_stack **A, bool print)

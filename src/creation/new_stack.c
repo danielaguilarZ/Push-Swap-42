@@ -12,26 +12,50 @@
 
 #include "../../includes/push_swap.h"
 
+// static void	ft_assign_indexes(t_stack **stack)
+// {
+// 	t_stack	*current;
+// 	t_stack	*temp;
+// 	int		smaller_than;
+
+// 	smaller_than = 1;
+// 	current = *stack;
+// 	while (current)
+// 	{
+// 		temp = *stack;
+// 		smaller_than = 1;
+// 		while (temp)
+// 		{
+// 			if (temp->nb < current->nb)
+// 				smaller_than++;
+// 			temp = temp->next;
+// 		}
+// 		current->index = smaller_than;
+// 		current = current->next;
+// 	}
+// }
+
+
 static void	ft_assign_indexes(t_stack **stack)
 {
-	t_stack	*current;
-	t_stack	*temp;
-	int		smaller_than;
+	t_stack	*cur;
+	t_stack	*comp;
 
-	smaller_than = 0;
-	current = *stack;
-	while (current)
+	cur = *stack;
+	while (cur != NULL)
 	{
-		temp = *stack;
-		smaller_than = 0;
-		while (temp)
+		comp = *stack;
+		while (comp != NULL)
 		{
-			if (temp->nb < current->nb)
-				smaller_than++;
-			temp = temp->next;
+			if (cur->nb <= comp->nb)
+				comp = comp->next;
+			else if (cur->nb > comp->nb)
+			{
+				cur->index += 1;
+				comp = comp->next;
+			}
 		}
-		current->index = smaller_than;
-		current = current->next;
+		cur = cur->next;
 	}
 }
 
@@ -47,6 +71,7 @@ static void	ft_add_node(t_stack **stack, int n)
 		return ;
 	node->next = NULL;
 	node->nb = n;
+	node->index = 1;
 	if (!(*stack))
 	{
 		*stack = node;
@@ -77,7 +102,7 @@ void	ft_create_stack_a(t_stack **A, char **argv)
 			ft_free_errors(A);
 		ft_add_node(A, (int)n);
 		i++;
-	}
+	}	
 	ft_assign_indexes(A);
 }
 

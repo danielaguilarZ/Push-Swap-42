@@ -53,10 +53,10 @@ static void	ft_find_target_positions(t_stack **A, t_stack **B)
 	t_stack	*target;
 
 	current_b = *B;
+	ft_find_position(A);
+	ft_find_position(B);
 	while (current_b)
 	{
-		ft_find_position(A);
-		ft_find_position(B);
 		current_a = *A;
 		target = NULL;
 		while (current_a)

@@ -88,7 +88,7 @@ void	ft_sort_all(t_stack **A, t_stack **B)
 		cheapest = ft_calc_cheapest_move(B);
 		ft_make_sequence(A, B, cheapest);
 		ft_find_position(A);
-		ft_find_position(B);
+		ft_find_position(B);	
 	}
 	if (ft_stack_sorted(*A) == false)
 		ft_ra_last(A);

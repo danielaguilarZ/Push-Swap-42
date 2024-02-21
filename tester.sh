@@ -20,7 +20,7 @@ worst=0
 
 if [ $quantityWanted -eq 5 ]; then
     quantity=$((quantity + 5))
-    maxOperation=$((maxOperation + 11))
+    maxOperation=$((maxOperation + 12))
 elif [ $quantityWanted -eq 100 ]; then
     quantity=$((quantity + 100))
     maxOperation=$((maxOperation + 700))
