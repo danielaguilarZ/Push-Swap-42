@@ -37,14 +37,13 @@ void	ft_operation_checker(t_stack *a, t_stack *b, char *operation)
 	if (ft_strncmp(operation, "pb\n", 4) == 0)
 		ft_pb(&a, &b, false);
 }
-
+q
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
 	t_stack	*b;
 	char	*operation;
 
-	printf("HOLA");
 	a = NULL;
 	b = NULL;
 	if (argc == 1 || (argc == 2 && !argv[1][0]))
@@ -60,7 +59,7 @@ int	main(int argc, char **argv)
 		ft_operation_checker(a, b, operation);
 		operation = get_next_line(0);
 	}
-	if (ft_stack_sorted(a) == true)
+	if (ft_stack_sorted(a) == true && !b)
 		ft_printf("OK\n");
 	else
 		ft_printf("KO\n");
