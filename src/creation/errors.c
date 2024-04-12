@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:34:46 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:40:21 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/04/12 12:58:34 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,6 @@ void	ft_free_stack(t_stack **stack)
 void	ft_free_errors(t_stack **A)
 {
 	ft_free_stack(A);
-	ft_printf("Error\n");
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }

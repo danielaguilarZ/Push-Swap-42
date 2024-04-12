@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 17:16:10 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/20 18:44:22 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:28:51 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ void				ft_rr_both(t_stack **A, t_stack **B, t_stack *cheapest);
 void				ft_make_sequence(t_stack **A, t_stack **B,
 						t_stack *cheapest);
 void				ft_sort_all(t_stack **A, t_stack **B);
-void				ft_operation_checker(t_stack *a, t_stack *b,
+void				ft_operation_checker(t_stack **a, t_stack **b,
 						char *operation);
 t_stack				*ft_smallest_index(t_stack **A);
 void				ft_smallest_index_to_pos(t_stack **A, t_stack *current_b);

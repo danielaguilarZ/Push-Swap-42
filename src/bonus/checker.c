@@ -6,38 +6,38 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:47:18 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/20 19:12:30 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/04/12 14:29:32 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
 
-void	ft_operation_checker(t_stack *a, t_stack *b, char *operation)
+void	ft_operation_checker(t_stack **a, t_stack **b, char *operation)
 {
-	if (ft_strncmp(operation, "sa\n", 4) == 0)
-		ft_sa(&a, false);
-	if (ft_strncmp(operation, "sb\n", 4) == 0)
-		ft_sb(&b, false);
-	if (ft_strncmp(operation, "ss\n", 4) == 0)
-		ft_ss(&a, &b, false);
-	if (ft_strncmp(operation, "ra\n", 4) == 0)
-		ft_ra(&a, false);
-	if (ft_strncmp(operation, "rb\n", 4) == 0)
-		ft_rb(&b, false);
-	if (ft_strncmp(operation, "rr\n", 4) == 0)
-		ft_rr(&a, &b, false);
-	if (ft_strncmp(operation, "rra\n", 5) == 0)
-		ft_rra(&a, false);
-	if (ft_strncmp(operation, "rrb\n", 5) == 0)
-		ft_rrb(&b, false);
-	if (ft_strncmp(operation, "rrr\n", 5) == 0)
-		ft_rrr(&a, &b, false);
-	if (ft_strncmp(operation, "pa\n", 4) == 0)
-		ft_pa(&a, &b, false);
-	if (ft_strncmp(operation, "pb\n", 4) == 0)
-		ft_pb(&a, &b, false);
+	if (ft_strncmp(operation, "sa\n", 3) == 0)
+		ft_sa(a, false);
+	if (ft_strncmp(operation, "sb\n", 3) == 0)
+		ft_sb(b, false);
+	if (ft_strncmp(operation, "ss\n", 3) == 0)
+		ft_ss(a, b, false);
+	if (ft_strncmp(operation, "ra\n", 3) == 0)
+		ft_ra(a, false);
+	if (ft_strncmp(operation, "rb\n", 3) == 0)
+		ft_rb(b, false);
+	if (ft_strncmp(operation, "rr\n", 3) == 0)
+		ft_rr(a, b, false);
+	if (ft_strncmp(operation, "rra\n", 4) == 0)
+		ft_rra(a, false);
+	if (ft_strncmp(operation, "rrb\n", 4) == 0)
+		ft_rrb(b, false);
+	if (ft_strncmp(operation, "rrr\n", 4) == 0)
+		ft_rrr(a, b, false);
+	if (ft_strncmp(operation, "pa\n", 3) == 0)
+		ft_pa(a, b, false);
+	if (ft_strncmp(operation, "pb\n", 3) == 0)
+		ft_pb(a, b, false);
 }
-q
+
 int	main(int argc, char **argv)
 {
 	t_stack	*a;
@@ -54,11 +54,12 @@ int	main(int argc, char **argv)
 	operation = get_next_line(0);
 	while (operation != NULL)
 	{
-		if (ft_strncmp(operation, "Error\n", 7) == 0)
-			ft_printf("Error");
-		ft_operation_checker(a, b, operation);
+		if (ft_strncmp(operation, "Error\n", 5) == 0)
+			ft_printf("Error\n");
+		ft_operation_checker(&a, &b, operation);
 		operation = get_next_line(0);
 	}
+	// ft_print_stacks(a, b);
 	if (ft_stack_sorted(a) == true && !b)
 		ft_printf("OK\n");
 	else
