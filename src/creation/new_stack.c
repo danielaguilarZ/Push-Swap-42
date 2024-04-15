@@ -6,35 +6,11 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:34:39 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/20 18:28:00 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/04/15 20:10:20 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/push_swap.h"
-
-// static void	ft_assign_indexes(t_stack **stack)
-// {
-// 	t_stack	*current;
-// 	t_stack	*temp;
-// 	int		smaller_than;
-
-// 	smaller_than = 1;
-// 	current = *stack;
-// 	while (current)
-// 	{
-// 		temp = *stack;
-// 		smaller_than = 1;
-// 		while (temp)
-// 		{
-// 			if (temp->nb < current->nb)
-// 				smaller_than++;
-// 			temp = temp->next;
-// 		}
-// 		current->index = smaller_than;
-// 		current = current->next;
-// 	}
-// }
-
 
 static void	ft_assign_indexes(t_stack **stack)
 {
@@ -102,36 +78,6 @@ void	ft_create_stack_a(t_stack **A, char **argv)
 			ft_free_errors(A);
 		ft_add_node(A, (int)n);
 		i++;
-	}	
+	}
 	ft_assign_indexes(A);
-}
-
-void	ft_print_stacks(t_stack *A, t_stack *B)
-{
-	ft_printf("\n");
-	if (A == NULL)
-		ft_printf("Stack A: \n");
-	else
-	{
-		ft_printf("Stack A: \n");
-		while (A != NULL)
-		{
-			ft_printf("Valor: %i | Índice: %i | Posición: %i\n", A->nb,
-				A->index, A->pos);
-			A = A->next;
-		}
-	}
-	ft_printf("\n");
-	if (B == NULL)
-		ft_printf("Stack B: \n");
-	else
-	{
-		ft_printf("Stack B: \n");
-		while (B != NULL)
-		{
-			ft_printf("Valor: %i | Índice: %i | Posición: %i | Posición Objetivo: %i\n", B->nb, B->index, B->pos,
-				B->target_pos);
-			B = B->next;
-		}
-	}
 }

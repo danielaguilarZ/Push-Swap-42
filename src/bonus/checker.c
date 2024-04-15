@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/14 16:47:18 by daguilar          #+#    #+#             */
-/*   Updated: 2024/04/12 14:29:32 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/04/15 20:08:47 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,6 @@ int	main(int argc, char **argv)
 		ft_operation_checker(&a, &b, operation);
 		operation = get_next_line(0);
 	}
-	// ft_print_stacks(a, b);
 	if (ft_stack_sorted(a) == true && !b)
 		ft_printf("OK\n");
 	else

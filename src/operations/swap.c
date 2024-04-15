@@ -6,7 +6,7 @@
 /*   By: daguilar <daguilar@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/11 17:34:29 by daguilar          #+#    #+#             */
-/*   Updated: 2024/02/19 16:40:33 by daguilar         ###   ########.fr       */
+/*   Updated: 2024/04/15 20:10:38 by daguilar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_swap(t_stack **stack)
 	*stack = (*stack)->next;
 	temp->next = (*stack)->next;
 	(*stack)->next = temp;
-
 }
 
 void	ft_sa(t_stack **A, bool print)
